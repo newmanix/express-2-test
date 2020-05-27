@@ -21,7 +21,8 @@ app.get('/', function(req, res) {
 app.get('/users', function(req, res) {
     var title = 'Users Page';
     res.render('users/index', {
-        title: title
+        title: title,
+        users: data
     });
 });
 
