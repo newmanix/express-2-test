@@ -7,25 +7,22 @@ const PORT = 3000;
 app.use(express.static(__dirname + '/public')); // set location for static files
 app.use(require("body-parser").urlencoded({extended: true})); // parse form submissions
 
-//app.set('views', path.join(__dirname, 'views')); //connection to views folder
-
-/*
-//load index.html using router
-app.get('/',(req,res) =>{
-  res.type('text/html');
-  res.sendFile(__dirname + '/index.html');
-});
-*/
-
-
 app.set('view engine', 'ejs'); // set the view engine to ejs
 
 // use res.render to load up an ejs view file
 
-// index page 
+// pass in page title 
 app.get('/', function(req, res) {
-    res.render('pages/index');
+    var title = 'Our Home Page';
+    res.render('pages/index', {
+        title: title
+    });
 });
+
+res.render('pages/index', {
+        drinks: drinks,
+        tagline: tagline
+    });
 
 
 app.listen(PORT,()=>{
