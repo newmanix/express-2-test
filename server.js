@@ -9,15 +9,7 @@ app.use(require("body-parser").urlencoded({extended: true})); // parse form subm
 
 app.set('view engine', 'ejs'); // set the view engine to ejs
 
-// pass in page title as JSON
-app.get('/', function(req, res) {
-    var title = 'Our Home Page';
-    res.render('pages/index', {
-        title: title
-    });
-});
-
-//add users route
+//add users route - must go above default
 app.get('/users', function(req, res) {
     var title = 'Users Page';
     res.render('pages/index', {
@@ -25,6 +17,13 @@ app.get('/users', function(req, res) {
     });
 });
 
+// pass in page title as JSON
+app.get('/', function(req, res) {
+    var title = 'Our Home Page';
+    res.render('pages/index', {
+        title: title
+    });
+});
 
 app.listen(PORT,()=>{
   console.log(`App is running on port ${PORT}`);
