@@ -17,6 +17,13 @@ app.get('/', function(req, res) {
     });
 });
 
+app.get('/users', function(req, res) {
+    var title = 'Users Page';
+    res.render('pages/index', {
+        title: title
+    });
+});
+
 
 app.listen(PORT,()=>{
   console.log(`App is running on port ${PORT}`);
