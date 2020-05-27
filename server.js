@@ -9,20 +9,13 @@ app.use(require("body-parser").urlencoded({extended: true})); // parse form subm
 
 app.set('view engine', 'ejs'); // set the view engine to ejs
 
-// use res.render to load up an ejs view file
-
-// pass in page title 
+// pass in page title as JSON
 app.get('/', function(req, res) {
     var title = 'Our Home Page';
     res.render('pages/index', {
         title: title
     });
 });
-
-res.render('pages/index', {
-        drinks: drinks,
-        tagline: tagline
-    });
 
 
 app.listen(PORT,()=>{
