@@ -9,18 +9,18 @@ app.use(require("body-parser").urlencoded({extended: true})); // parse form subm
 
 app.set('view engine', 'ejs'); // set the view engine to ejs
 
-//add users route - must go above default
-app.get('/users', function(req, res) {
-    var title = 'Users Page';
+// pass in page title as JSON
+app.get('/', function(req, res) {
+    var title = 'Our Home Page';
     res.render('pages/index', {
         title: title
     });
 });
 
-// pass in page title as JSON
-app.get('/', function(req, res) {
-    var title = 'Our Home Page';
-    res.render('pages/index', {
+//add users route
+app.get('/users', function(req, res) {
+    var title = 'Users Page';
+    res.render('users/index', {
         title: title
     });
 });
