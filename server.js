@@ -4,15 +4,14 @@ var data = require('./data/test.json');
 var app = express();
 const PORT = 3000;
 
-//we can now serve up static pages - COMMENTED OUT FOR NOW
-//app.use(express.static(__dirname));
+app.use(express.static(__dirname + '/public')); // set location for static files
+app.use(require("body-parser").urlencoded({extended: true})); // parse form submissions
 
-//show JSON data at default URL
+//load index.html using router
 app.get('/',(req,res) =>{
-  //res.send(`We're at the root of the app, on port ${PORT}`);
-  res.json(data);
+  res.type('text/html');
+  res.sendFile(__dirname + '/index.html');
 });
-
 
 app.listen(PORT,()=>{
   console.log(`App is running on port ${PORT}`);
