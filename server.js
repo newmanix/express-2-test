@@ -9,14 +9,15 @@ app.use(require("body-parser").urlencoded({extended: true})); // parse form subm
 
 //app.set('views', path.join(__dirname, 'views')); //connection to views folder
 
+/*
 //load index.html using router
 app.get('/',(req,res) =>{
   res.type('text/html');
   res.sendFile(__dirname + '/index.html');
 });
+*/
 
 
-/*
 app.set('view engine', 'ejs'); // set the view engine to ejs
 
 // use res.render to load up an ejs view file
@@ -26,7 +27,6 @@ app.get('/', function(req, res) {
     res.render('pages/index');
 });
 
-*/
 
 app.listen(PORT,()=>{
   console.log(`App is running on port ${PORT}`);
