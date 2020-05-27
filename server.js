@@ -7,8 +7,8 @@ const PORT = 3000;
 app.use(express.static(__dirname + '/public')); // set location for static files
 app.use(require("body-parser").urlencoded({extended: true})); // parse form submissions
 
-// set the view engine to ejs
-app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, 'views')); //connection to views folder
+app.set('view engine', 'ejs'); // set the view engine to ejs
 
 // use res.render to load up an ejs view file
 
