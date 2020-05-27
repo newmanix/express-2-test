@@ -17,6 +17,7 @@ app.get('/', function(req, res) {
     });
 });
 
+//add users route
 app.get('/users', function(req, res) {
     var title = 'Users Page';
     res.render('pages/index', {
