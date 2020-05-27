@@ -10,7 +10,14 @@
           </p>
         </div>
  
-        <% users.forEach(function(user){ %>
+        <% users.forEach(function(user){
+         var id  = parseInt(user.id);
+          if(user.id % 2 == 0) {
+        %>
+            <img src="https://randomuser.me/api/portraits/thumb/men/<%= user.id %>.jpg" />
+         <%} else {%>
+            <img src="https://randomuser.me/api/portraits/thumb/women/<%= user.id %>.jpg" />
+         <%}%>
           <p>
              <b>id:</b> <%= user.id %><br />
              <b>first_name:</b> <%= user.first_name %><br />
