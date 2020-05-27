@@ -7,10 +7,14 @@ const PORT = 3000;
 app.use(express.static(__dirname + '/public')); // set location for static files
 app.use(require("body-parser").urlencoded({extended: true})); // parse form submissions
 
-//load index.html using router
-app.get('/',(req,res) =>{
-  res.type('text/html');
-  res.sendFile(__dirname + '/index.html');
+// set the view engine to ejs
+app.set('view engine', 'ejs');
+
+// use res.render to load up an ejs view file
+
+// index page 
+app.get('/', function(req, res) {
+    res.render('pages/index');
 });
 
 app.listen(PORT,()=>{
